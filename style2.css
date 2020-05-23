@@ -1,0 +1,37 @@
+body {
+	background-color: #ffff99;
+	color: #000000;
+	font-family: Lucida Sans Unicode;
+}
+
+#header {
+	margin:0;
+	text-align: center;
+	background-color: #fff;
+}
+
+#button1, #button2 {
+	width: 40%;
+	padding:15% 0%;
+	background-color:#fff;
+	border:none;
+	border-radius: 6%;
+	font-size:200%;
+	margin:2%;
+}
+
+#form {
+	text-align: center;
+}
+
+#button1:hover, #button2:hover {
+	border: 5px rgb(95%,60%,48%) solid;
+}
+
+#button1 {
+	background-image:url(healthImages/handDemo.png);
+}
+
+
+
+
