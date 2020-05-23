@@ -12,6 +12,15 @@ body {
 	padding:1%;
 }
 
+#arrow {
+	position:absolute;
+	left:2.5%;
+	margin:0;
+	text-decoration:none;
+	font-size: 180%;
+	text-align: center;
+}
+
 #mainHeader {
 	display: flex;
 	justify-content: center;
