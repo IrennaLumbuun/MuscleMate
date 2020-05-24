@@ -66,8 +66,8 @@ def Main():
     cv2.createTrackbar('US', 'Tracking', 101, 255, nothing)
     cv2.createTrackbar('UV', 'Tracking', 208, 255, nothing)
     
-    hand1_loc = deque(maxlen= 100)
-    hand2_loc = deque(maxlen= 100)
+    hand1_loc = deque(maxlen= 50)
+    hand2_loc = deque(maxlen= 50)
 
     while True:
         ret, frame = vs.read()
@@ -102,6 +102,8 @@ def Main():
             if index == 1:
                 hand2_loc.appendleft([x, y, w, h, center])
                 cv2.putText(frame, "Detected: hand2", (x -10, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
+            else: 
+                hand2_loc.appendleft([0,0,0,0, (0,0)])
             index +=1
             
         
@@ -113,14 +115,15 @@ def Main():
             if hand1_loc[i-1] is None or hand1_loc[i] is None:
                 continue
 
-            thickness = int(np.sqrt(100/ float(i + 1)) * 4)
+            thickness = int(np.sqrt(50/ float(i + 1)) * 1.5)
             cv2.line(frame, hand1_loc[i-1][4], hand1_loc[i][4], (0, 0, 255), thickness)
 
             #draw hand2 location
             if len(hand2_loc)> i:
+                print(hand2_loc)
                 if hand2_loc[i-1] is None or hand2_loc[i] is None:
                     continue
-                thickness = int(np.sqrt(100/ float(i + 1)) * 4)
+                thickness = int(np.sqrt(50/ float(i + 1)) * 1.5)
                 cv2.line(frame, hand2_loc[i-1][4], hand2_loc[i][4], (0, 255, 0), thickness)
 
         cv2.imshow('Contour', frame)
@@ -132,4 +135,4 @@ def Main():
     vs.release()
     cv2.destroyAllWindows()
 
-Main()
+#Main()
