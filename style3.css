@@ -1,0 +1,20 @@
+body {
+  background-color: #ffff99;
+  color: #000000;
+  font-family: Lucida Sans Unicode;
+}
+.container {
+  float: left;
+  width: 150px;
+  padding-top: 60px;
+  font-size: 30px;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box; 
+}
+#closedFist {
+  max-width: 150px;
+}
+#video {
+	padding-top: 0px;
+}
