@@ -42,38 +42,55 @@ h1 {
 img {
   padding:1%;
 }
+
+#mainContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+} 
+
 .container {
   float: left;
   width: 150px;
-  padding-top: 60px;
-  font-size: 30px;
+  font-size: (4em + 1.5vw);
   overflow: hidden;
   text-align: center;
   box-sizing: border-box; 
+  margin-top: 3%;
+  margin-left: 6%;
+  margin-right:6%;
+  /*
   position:absolute;
   left:10%;
   top:15%;
   box-sizing: border-box;
-}
-
-#closedFist {
-  max-width: 150px;
-}
-#video {
-  padding-top: 0px;
-}
-
-#ph {
-  position:absolute;
-  top:15%;
-  right: 6%;
-  width: 60%;
+  */
 }
 
 #end {
-  width:10%;
-  float:right;
+  width:5%;
   position: absolute;
-  top:70%;
-  right:3%;
+  top:63%;
+  right:15%;
 }
+
+#video-container {
+  margin-left:0;
+  width: 50%;
+}
+
+#video-input {
+  float:right;
+  border:3px #ffb6c1 solid;
+  border-radius: 10px;
+  width: 80%;
+  margin-top:5%;
+  margin-right:3%;
+  /*
+  position:absolute;
+  top: 13%;
+  right:10%;
+  box-sizing: border-box;
+  */
+}
+

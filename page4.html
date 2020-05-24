@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Right Hand Exercise</title>
-  <link rel="stylesheet" type="text/css" href="style4.css">
+  <title>Left Hand Exercise</title>
+  <link rel="stylesheet" type="text/css" href="style3.css">
 </head>
 <body>
 	<header id = mainHeader>
@@ -13,22 +13,25 @@
 		<img id = "image" src= "healthImages/handHeart.png" alt="Muscle Mate Logo" width= 30px>
 		<a id="arrow" href="secondpage.html"> &#8592 </a>
 	</header>
-  <div class="container">
-    <section id="main">
-    <div id = "demo">
-    	<h1>Follow<br>Me!</h1>
-      	<video id="video" src = "healthImages/rightHandVideo.mp4" type=video/mp4 alt="demo" controls autoplay loop/>
-    </div>
-  </div>
-  <div id="video-container">
-    <video id="video-input" autoplay onclick={launchDetector()}> </video>
-    <canvas id="video-output" width="640" height="480"></canvas>
-  </div>
-  <div>
-    <a href="fifthpage.html">
-    	<img id="end" src="healthImages/end.png" alt="end">
-  	</a>
-  </div>
+<div id = "mainContainer" >
+	  <div class="container">
+	    <section id="main">
+	    <div id = "demo">
+	    	<h1>Follow<br>Me!</h1>
+	      	<video id="video" src = "healthImages/rightHandVideo.mp4" type=video/mp4 alt="demo" controls autoplay loop/>
+	    </div>
+	  </div>
+	  <div id="video-container">
+	    <video id="video-input" autoplay> </video>
+	    <canvas id="video-output" width="640" height="480"></canvas>
+	  </div>
+		  <div>
+	    <a href="fifthpage.html">
+	    	<img id="end" src="healthImages/end.png" alt="end">
+	  	</a>
+	  </div>
+	</div>
+  
 
 
 </body>
@@ -45,9 +48,9 @@
           window.stream = stream;
             video.srcObject = stream;
             video.play()
-            })
-            .catch(function(err) {
-                console.log("An error occurred! " + err);
+                })
+                .catch(function(err) {
+                    console.log("An error occurred! " + err);
         });
 
         launchDetector =() => {
