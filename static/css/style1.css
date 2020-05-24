@@ -5,7 +5,9 @@ body {
     display: flex;
     flex-direction: row-reverse;
     min-width: 600px;
-    margin-top: 25%;
+    justify-content: center;
+    align-items: center;
+    height: -webkit-fill-available;
 }
 
 .selections label {
@@ -37,24 +39,24 @@ body {
 
 .welcome {
     margin: 0;
-    min-width: 450px;
+    min-width: 300px;
 }
 
 .welcome img {
 	width: 45%;
-	margin-top: -10%;
+	margin-top: -5%;
 	margin-left: 50%;
 }
 
 
 .welcome h3 {
 	margin: 0;
-    font-size: 3rem;
+    font-size: 150%;
     text-align: center;
 }
 
 .welcome h1 {
-	font-size: 3.5rem;
+	font-size: 300%;
     margin: 0;
     padding: 0 5rem;
     word-wrap: break-word;
