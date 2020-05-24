@@ -151,4 +151,4 @@ def run_detector():
     vs.release()
     cv2.destroyAllWindows()
 
-#run_detector()
+run_detector()
