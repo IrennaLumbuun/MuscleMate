@@ -1,0 +1,71 @@
+body {
+	background-color: #ffff99;
+	color: #000000;
+	font-family: Lucida Sans Unicode;
+}
+
+.selections label {
+	display: block;
+}
+
+.selections {
+	width:40%;
+	/*border:1px solid #000;*/
+	text-align:center;
+	box-sizing: border-box;
+	position: absolute;
+	top: 10%;
+	right: 10%;
+}
+
+/*BUTTON DESIGN*/
+.selections input {
+	padding:8%;
+	width: 65%;
+	background-color:#fff;
+	border:none;
+	border-radius: 6%;
+	font-size:200%;
+	margin-bottom:8%;
+}
+
+/* BUTTON HOVER*/
+.buttons:hover {
+	background: #ffb6c1;
+}
+
+.welcome {
+	position:absolute;
+	top: 25%;
+	left: 10%;
+	margin:0;
+}
+
+.welcome img {
+	position:absolute;
+	top: 80%;
+	left:68%;
+}
+
+
+.welcome h3 {
+	margin: 0;
+	font-size:150%;
+}
+
+.welcome h1 {
+	font-size:300%;
+	margin:0;
+	padding:0; 
+	line-height:1;
+}
+
+/*
+#img1 {
+	position:absolute;
+	top:40%;
+	left: 30%;
+}
+*/
+
+
