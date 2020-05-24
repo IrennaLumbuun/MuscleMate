@@ -52,13 +52,13 @@ img {
 .container {
   float: left;
   width: 150px;
-  padding-top: 60px;
   font-size: (4em + 1.5vw);
   overflow: hidden;
   text-align: center;
   box-sizing: border-box; 
   margin-top: 3%;
-  margin-left: 4%;
+  margin-left: 6%;
+  margin-right:6%;
   /*
   position:absolute;
   left:10%;
@@ -68,17 +68,22 @@ img {
 }
 
 #end {
-  width:8%;
+  width:5%;
   position: absolute;
-  top:68%;
-  right:10%;
+  top:63%;
+  right:15%;
 }
 
-#video-output {
+#video-container {
+  margin-left:0;
+  width: 50%;
+}
+
+#video-input {
   float:right;
   border:3px #ffb6c1 solid;
   border-radius: 10px;
-  width: 64%;
+  width: 80%;
   margin-top:5%;
   margin-right:3%;
   /*
