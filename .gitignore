@@ -1,0 +1,9 @@
+# workshop folder
+workshop
+
+# virtualenv
+env
+
+# mac config in this folder
+.vscode
+.DS_STORE
