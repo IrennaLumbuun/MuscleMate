@@ -12,6 +12,7 @@ body {
 
 .selections label {
 	display: block;
+	font-size:calc(5px + 1.5vw);
 }
 
 .selections {
