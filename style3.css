@@ -2,6 +2,35 @@ body {
   background-color: #ffff99;
   color: #000000;
   font-family: Lucida Sans Unicode;
+  margin:0;
+}
+
+#header {
+  margin:0;
+  text-align: center;
+  width: fit-content;
+  padding:1%;
+}
+
+#arrow {
+  position:absolute;
+  left: 2.5%;
+  margin:0;
+  text-decoration:none;
+  font-size: 180%;
+  text-align: center;
+}
+
+#mainHeader {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  background-color: #fff;
+  text-align:center;
+}
+
+img {
+  padding:1%;
 }
 .container {
   float: left;
@@ -12,9 +41,10 @@ body {
   text-align: center;
   box-sizing: border-box; 
 }
+
 #closedFist {
   max-width: 150px;
 }
 #video {
-	padding-top: 0px;
+  padding-top: 0px;
 }
