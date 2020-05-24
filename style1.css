@@ -1,0 +1,78 @@
+body {
+	background-color: #ffff99;
+	color: #000000;
+	font-family: Lucida Sans Unicode;
+	margin:0;
+	display:inline;
+}
+
+.selections label {
+	display: block;
+	font-size:calc(5px + 1.5vw);
+}
+
+.selections {
+	width:40%;
+	/*border:1px solid #000;*/
+	text-align:center;
+	box-sizing: border-box;
+	position: absolute;
+	top: 3%;
+	right: 10%;
+}
+
+/*BUTTON DESIGN*/
+.selections input {
+	padding:8%;
+	width: 65%;
+	background-color:#fff;
+	border:none;
+	border-radius: 6%;
+	font-size:calc(18px + 1.5vw);
+	margin-bottom:5%;
+}
+
+/* BUTTON HOVER*/
+.buttons:hover {
+	background: #ffb6c1;
+}
+
+.welcome {
+	position:absolute;
+	top: 35%;
+	left: 18%;
+	margin:0;
+}
+
+#image {
+	width:60%;
+}
+
+.welcome img {
+	position:absolute;
+	top: 80%;
+	left:85%;
+}
+
+
+.welcome h3 {
+	margin: 0;
+	font-size:calc(8px + 1.5vw);
+}
+
+.welcome h1 {
+	font-size:calc(30px + 1.5vw);
+	margin:0;
+	padding:0; 
+	line-height:1;
+}
+
+/*
+#img1 {
+	position:absolute;
+	top:40%;
+	left: 30%;
+}
+*/
+
+

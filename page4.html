@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Left Hand Exercise</title>
+  <link rel="stylesheet" type="text/css" href="style3.css">
+</head>
+<body>
+	<header id = mainHeader>
+		<h3 id="header">Muscle Mate</h3>
+		<img id = "image" src= "healthImages/handHeart.png" alt="Muscle Mate Logo" width= 30px>
+		<a id="arrow" href="secondpage.html"> &#8592 </a>
+	</header>
+<div id = "mainContainer" >
+	  <div class="container">
+	    <section id="main">
+	    <div id = "demo">
+	    	<h1>Follow<br>Me!</h1>
+	      	<video id="video" src = "healthImages/rightHandVideo.mp4" type=video/mp4 alt="demo" controls autoplay loop/>
+	    </div>
+	  </div>
+	  <div id="video-container">
+	    <video id="video-input" autoplay> </video>
+	    <canvas id="video-output" width="640" height="480"></canvas>
+	  </div>
+		  <div>
+	    <a href="fifthpage.html">
+	    	<img id="end" src="healthImages/end.png" alt="end">
+	  	</a>
+	  </div>
+	</div>
+  
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+      let video = document.getElementById("video-input");
+      let canvasFrame = document.getElementById("video-output"); // canvasFrame is the id of <canvas>
+      console.log(canvasFrame);
+      let context = canvasFrame.getContext("2d");
+      console.log(context);
+
+      navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        .then(function(stream) {
+          window.stream = stream;
+            video.srcObject = stream;
+            video.play()
+                })
+                .catch(function(err) {
+                    console.log("An error occurred! " + err);
+        });
+
+        launchDetector =() => {
+          console.log("clicked")
+          $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/launch",
+            data: {click: "clicked"},
+            success: function(data) {
+              if (data === "200") {
+                alert('Running detector...');
+              } else {
+                alert('There was an error uploading your file!');
+              }
+            },
+            error: function(data) {
+              alert('There was an error uploading your file!');
+            }
+            }).done(function() {
+          })
+        }
+</script>
+<html>
