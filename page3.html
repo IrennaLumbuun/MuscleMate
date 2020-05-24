@@ -10,21 +10,27 @@
 <body>
 	<header id = mainHeader>
 		<h3 id="header">Muscle Mate</h3>
-		<img id = "image" src= "../static/healthImages/handHeart.png" alt="Muscle Mate Logo" width= 30px>
+		<img id = "image" src= "healthImages/handHeart.png" alt="Muscle Mate Logo" width= 30px>
 		<a id="arrow" href="secondpage.html"> &#8592 </a>
 	</header>
   <div class="container">
     <section id="main">
-    <h1>Follow<br>Me!</h1>
-    <div> 
-      <img src= "../static/healthImages/handDemo.png" alt="demo" class="image" align="left" id = "closedFist">
+    <div id = "demo">
+    	<h1>Follow<br>Me!</h1>
+      	<video id="video" src = "healthImages/leftHandVideo.mp4" type=video/mp4 alt="demo" controls autoplay loop/>
     </div>
-  </section>
- </div id="video-container">
-    <video id = "video-input" playsinline autoplay></video>
-    <canvas id= "video-output"></canvas>
-  <div >
   </div>
+  <div id="video-container">
+    <video id="video-input" autoplay> </video>
+    <canvas id="video-output" width="640" height="480"></canvas>
+  </div>
+  <div>
+    <a href="fifthpage.html">
+    	<img id="end" src="healthImages/end.png" alt="end">
+  	</a>
+  </div>
+
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
@@ -36,12 +42,34 @@
 
       navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         .then(function(stream) {
+          window.stream = stream;
             video.srcObject = stream;
-            video.play();
-        })
-        .catch(function(err) {
-            console.log("An error occurred! " + err);
+            video.play().then(function(){
+              while(!video.ended){
+                var imgURL = canvasFrame.toDataURL();
+                console.log(imgURL);
+                $.ajax({
+                  type: "POST",
+                  url: "http://127.0.0.1:5000/detector",
+                  data: imgURL,
+                  success: function(data) {
+                    if (data.success) {
+                      alert('Your file was successfully uploaded!');
+                    } else {
+                      alert('There was an error uploading your file!');
+                    }
+                  },
+                  error: function(data) {
+                    alert('There was an error uploading your file!');
+                  }
+                }).done(function() {
+                  console.log("Sent");
+                });
+                      }
+                    });
+                })
+                .catch(function(err) {
+                    console.log("An error occurred! " + err);
         });
-        context.drawImage(video, 0, 0);
 </script>
 <html>

@@ -39,21 +39,29 @@ h1 {
 }
 
 #button1, #button2 {
-	width: 40%;
-	padding:10% 0%;
+	width: 75%;
+	padding: 45% 0%;
 	padding-bottom: 22%;
 	background-color:#fff;
 	border:none;
 	border-radius: 6%;
 	font-size:200%;
-	margin-top:0;
-	margin:1%;
+	margin-top: 0%;
+	margin: 1%;
 }
 
-#form {
-	text-align: center;
+
+#form1 {
+	float: left;
+	width: 49%;
+	text-align: right;
 }
 
+#form2 {
+	float: right;
+	width: 49%;
+	text-align: left;
+}
 
 #button1 {
 	background:url("./healthImages/leftHand1.jpg");
@@ -66,7 +74,7 @@ h1 {
 }
 
 #button1:hover, #button2:hover {
-	border: 5px #ffb6c1 solid;
+	border: 5px	 #ffb6c1 solid;
 }
 
 #button1:hover {
