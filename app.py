@@ -1,26 +1,14 @@
-from BackEnd.detector import *
-from flask import Response
-from flask import Flask
-from flask import render_template
+from detector import *
+from flask import Flask, flash, request, redirect, url_for
 import threading
-import argparse
-import datetime
-import time
-import cv2
+from werkzeug.utils import secure_filename
 
-outputFrame = None
 lock = threading.Lock()
 
 app = Flask(__name__)
 @app.route("/")
-def index(methods=["GET","POST"]):
-    return render_template("./firstpage.html")
-
-@app.route("/secondpage")
-def secondPage(methods=["GET","POST"]):
-    return render_template("./secondpage.html")
+def run_main():
+    return "great job!"
 
 if __name__ == '__main__':
-    app.jinja_env.auto_reload = True
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(debug=True)
