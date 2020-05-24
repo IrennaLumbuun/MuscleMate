@@ -1,13 +1,8 @@
 body {
 	background-color: #ffff99;
-    color: #000000;
-    font-family: Lucida Sans Unicode;
-    display: flex;
-    flex-direction: row-reverse;
-}
-.welcome{
-	width: fit-content;
-    margin-left: 2rem;
+	color: #000000;
+	font-family: Lucida Sans Unicode;
+
 }
 
 .selections label {
@@ -15,10 +10,13 @@ body {
 }
 
 .selections {
-	width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-    margin-top: 1rem;
+	width:40%;
+	/*border:1px solid #000;*/
+	text-align:center;
+	box-sizing: border-box;
+	position: absolute;
+	top: 10%;
+	right: 10%;
 }
 
 /*BUTTON DESIGN*/
@@ -38,30 +36,40 @@ body {
 }
 
 
-.welcome header {
-	position:relative;
-	margin-top:150px;
-	margin-left:50px;
+.welcome {
+	position:absolute;
+	top: 25%;
+	left: 10%;
 	margin:0;
 }
 
-h1.header-text{
-	font-size:3rem;
+.welcome img {
+	position:absolute;
+	top: 80%;
+	left:60%;
+}
+
+
+.welcome h3 {
+	margin: 0;
+	font-size:250%;
+}
+
+.welcome h1 {
+	font-size:300%;
 	margin:0;
-
+	padding:0; 
+	width:250px;
+	word-wrap:break-word;
+	line-height:1;
 }
 
-h3.header-text{
-	margin-bottom: 0;
-	font-size:2rem;
+/*
+#img1 {
+	position:absolute;
+	top:40%;
+	left: 30%;
 }
-
-div#img1 {
-	width:100%;
-}
-img.image{
-	width:70%;
-}
-
+*/
 
 
