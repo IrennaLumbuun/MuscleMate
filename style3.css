@@ -3,6 +3,11 @@ body {
   color: #000000;
   font-family: Lucida Sans Unicode;
   margin:0;
+  line-height: 1.5;
+}
+
+#video {
+  width:100%;
 }
 
 #header {
@@ -10,6 +15,11 @@ body {
   text-align: center;
   width: fit-content;
   padding:1%;
+}
+
+h1 {
+  margin:0;
+  margin-bottom: 5%;
 }
 
 #arrow {
@@ -40,6 +50,10 @@ img {
   overflow: hidden;
   text-align: center;
   box-sizing: border-box; 
+  position:absolute;
+  left:10%;
+  top:15%;
+  box-sizing: border-box;
 }
 
 #closedFist {
@@ -48,3 +62,20 @@ img {
 #video {
   padding-top: 0px;
 }
+
+#ph {
+  position:absolute;
+  top:15%;
+  right: 6%;
+  width: 60%;
+}
+
+#end {
+  width:10%;
+  float:right;
+  position: absolute;
+  top:70%;
+  right:3%;
+}
+
+
