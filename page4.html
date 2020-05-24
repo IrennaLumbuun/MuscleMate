@@ -21,7 +21,7 @@
     </div>
   </div>
   <div id="video-container">
-    <video id="video-input" autoplay> </video>
+    <video id="video-input" autoplay onclick={launchDetector()}> </video>
     <canvas id="video-output" width="640" height="480"></canvas>
   </div>
   <div>
@@ -44,32 +44,30 @@
         .then(function(stream) {
           window.stream = stream;
             video.srcObject = stream;
-            video.play().then(function(){
-              while(!video.ended){
-                var imgURL = canvasFrame.toDataURL();
-                console.log(imgURL);
-                $.ajax({
-                  type: "POST",
-                  url: "http://127.0.0.1:5000/detector",
-                  data: imgURL,
-                  success: function(data) {
-                    if (data.success) {
-                      alert('Your file was successfully uploaded!');
-                    } else {
-                      alert('There was an error uploading your file!');
-                    }
-                  },
-                  error: function(data) {
-                    alert('There was an error uploading your file!');
-                  }
-                }).done(function() {
-                  console.log("Sent");
-                });
-                      }
-                    });
-                })
-                .catch(function(err) {
-                    console.log("An error occurred! " + err);
+            video.play()
+            })
+            .catch(function(err) {
+                console.log("An error occurred! " + err);
         });
+
+        launchDetector =() => {
+          console.log("clicked")
+          $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/launch",
+            data: {click: "clicked"},
+            success: function(data) {
+              if (data === "200") {
+                alert('Running detector...');
+              } else {
+                alert('There was an error uploading your file!');
+              }
+            },
+            error: function(data) {
+              alert('There was an error uploading your file!');
+            }
+            }).done(function() {
+          })
+        }
 </script>
 <html>

@@ -85,11 +85,11 @@ def draw_movement(frame, hand1_loc, hand2_loc):
             thickness = int(np.sqrt(50/ float(i + 1)) * 1.5)
             cv2.line(frame, hand2_loc[i-1][4], hand2_loc[i][4], (0, 255, 0), thickness)
 
-# Main:
-# From main, we access camera, declare user Dequeue
+# run_detector:
+# From run_detector, we access camera, declare user Dequeue
 # using a while loop for all frame, we:
 #     - call a function to detect hand and update dequeque
-def Main():
+def run_detector():
     vs = cv2.VideoCapture(0)
     time.sleep(0.5) # give some time to warm up
 
@@ -151,4 +151,4 @@ def Main():
     vs.release()
     cv2.destroyAllWindows()
 
-Main()
+#run_detector()

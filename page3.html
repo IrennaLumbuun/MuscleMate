@@ -30,23 +30,25 @@
   	</a>
   </div>
 
-
-</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
       let video = document.getElementById("video-input");
       let canvasFrame = document.getElementById("video-output"); // canvasFrame is the id of <canvas>
       console.log(canvasFrame);
       let context = canvasFrame.getContext("2d");
-      console.log(context);
 
       navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         .then(function(stream) {
           window.stream = stream;
             video.srcObject = stream;
-            video.play().then(function(){
+            video.play().then(() => {
               while(!video.ended){
-                var imgURL = canvasFrame.toDataURL();
+                video.pause()
+                context.drawImage(video, 0, 0)
+                console.log(this);
+                console.log(video);
+                /*
+                var imgURL = video.toDataURL();
                 console.log(imgURL);
                 $.ajax({
                   type: "POST",
@@ -64,12 +66,15 @@
                   }
                 }).done(function() {
                   console.log("Sent");
-                });
-                      }
-                    });
-                })
-                .catch(function(err) {
-                    console.log("An error occurred! " + err);
+                });*/
+                video.play()
+                }
+              });
+          })
+          .catch(function(err) {
+              console.log("An error occurred! " + err);
         });
 </script>
+
+</body>
 <html>
