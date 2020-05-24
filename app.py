@@ -13,8 +13,12 @@ lock = threading.Lock()
 
 app = Flask(__name__)
 @app.route("/")
-def index():
+def index(methods=["GET","POST"]):
     return render_template("./firstpage.html")
+
+@app.route("/secondpage")
+def secondPage(methods=["GET","POST"]):
+    return render_template("./secondpage.html")
 
 if __name__ == '__main__':
     app.jinja_env.auto_reload = True
