@@ -18,7 +18,7 @@
 	    <section id="main">
 	    <div id = "demo">
 	    	<h1>Follow<br>Me!</h1>
-	      	<video id="video" src = "healthImages/leftHandVideo.mp4" type=video/mp4 alt="demo" controls autoplay loop/>
+	      	<video id="video" src = "./healthImages/leftHandVideo.mp4" type=video/mp4 alt="demo" controls autoplay loop/>
 	    </div>
 	  </div>
 	  <div id="video-container">
@@ -27,57 +27,50 @@
 	  </div>
 		  <div>
 	    <a href="./fifthpage.html">
-	    	<img id="end" src="healthImages/end.png" alt="end">
+	    	<img id="end" src="./healthImages/end.png" alt="end">
 	  	</a>
 	  </div>
 	</div>
   
 
+
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
       let video = document.getElementById("video-input");
       let canvasFrame = document.getElementById("video-output"); // canvasFrame is the id of <canvas>
       console.log(canvasFrame);
       let context = canvasFrame.getContext("2d");
+      console.log(context);
 
       navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         .then(function(stream) {
           window.stream = stream;
             video.srcObject = stream;
-            video.play().then(() => {
-              while(!video.ended){
-                video.pause()
-                context.drawImage(video, 0, 0)
-                console.log(this);
-                console.log(video);
-                /*
-                var imgURL = video.toDataURL();
-                console.log(imgURL);
-                $.ajax({
-                  type: "POST",
-                  url: "http://127.0.0.1:5000/detector",
-                  data: imgURL,
-                  success: function(data) {
-                    if (data.success) {
-                      alert('Your file was successfully uploaded!');
-                    } else {
-                      alert('There was an error uploading your file!');
-                    }
-                  },
-                  error: function(data) {
-                    alert('There was an error uploading your file!');
-                  }
-                }).done(function() {
-                  console.log("Sent");
-                });*/
-                video.play()
-                }
-              });
-          })
-          .catch(function(err) {
-              console.log("An error occurred! " + err);
+            video.play()
+                })
+                .catch(function(err) {
+                    console.log("An error occurred! " + err);
         });
-</script>
 
-</body>
+        launchDetector =() => {
+          console.log("clicked")
+          $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/launch",
+            data: {click: "clicked"},
+            success: function(data) {
+              if (data === "200") {
+                alert('Running detector...');
+              } else {
+                alert('There was an error uploading your file!');
+              }
+            },
+            error: function(data) {
+              alert('There was an error uploading your file!');
+            }
+            }).done(function() {
+          })
+        }
+</script>
 <html>
