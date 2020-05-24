@@ -72,15 +72,14 @@ def draw_movement(frame, hand1_loc, hand2_loc):
 
     for i in range (1, maxLength):
         #draw hand1 location
-        if hand1_loc[i-1] is None or hand1_loc[i] is None:
-            continue
-
-        thickness = int(np.sqrt(50/ float(i + 1)) * 1.5)
-        cv2.line(frame, hand1_loc[i-1][4], hand1_loc[i][4], (0, 0, 255), thickness)
+        if len(hand1_loc)> i:
+            if hand1_loc[i-1] is None or hand1_loc[i] is None:
+                continue
+            thickness = int(np.sqrt(50/ float(i + 1)) * 1.5)
+            cv2.line(frame, hand1_loc[i-1][4], hand1_loc[i][4], (0, 0, 255), thickness)
 
         #draw hand2 location
         if len(hand2_loc)> i:
-            print(hand2_loc)
             if hand2_loc[i-1] is None or hand2_loc[i] is None:
                 continue
             thickness = int(np.sqrt(50/ float(i + 1)) * 1.5)
@@ -111,12 +110,18 @@ def Main():
     hand1_loc = deque(maxlen= 50)
     hand2_loc = deque(maxlen= 50)
 
+    reach_target = False
+
     while True:
         ret, frame = vs.read()
         if not ret:
             print("no frame to read")
             break
-        
+
+        if reach_target:
+            time.sleep(2.0)
+            break
+    
         minArea = cv2.getTrackbarPos('minArea', 'Tracking')
 
         mask = maskImage(frame)
@@ -125,7 +130,25 @@ def Main():
 
         populateDeque(frame, contour, minArea, hand1_loc, hand2_loc)
         draw_movement(frame, hand1_loc, hand2_loc)
-        
+
+        #draw target
+        if not reach_target:
+            frame = cv2.rectangle(frame, (0, 0), (650, 70), (255, 0, 0), -1)
+            frame = cv2.putText(frame, "Target", (275, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 3)
+            print("target not reached")
+
+        if(len(hand1_loc) > 1):
+            last_posY = hand1_loc[len(hand1_loc) - 1][1]
+            last_posX = hand1_loc[len(hand1_loc) - 1][1]
+
+            print(last_posX, last_posY)
+            #user has hit target
+            if last_posY <= 70:
+                reach_target = True
+                frame = cv2.rectangle(frame, (0, 0), (650, 70), (255, 0, 0), -1)
+                frame = cv2.putText(frame, "You reached the target!", (275, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 3)
+                print("target reached")
+
         cv2.imshow('Contour', frame)
 
         key = cv2.waitKey(1) & 0xFF
