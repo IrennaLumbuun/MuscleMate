@@ -1,8 +1,9 @@
 # MuscleMate
 Ohlone Hacks 2020 Project
 
-## See our site on https://irennalumbuun.github.io/MuscleMate/
-Due to time constraint, we were not able to connect the python back-end to the front end.
+## See our frontend on https://irennalumbuun.github.io/MuscleMate/ 
+p.s. Due to time constraint, we were not able to connect the python back-end to the front end.
+
 To run the motion detector back end:
 - clone this repository
 - navigate to MuscleMate folder on your machine
